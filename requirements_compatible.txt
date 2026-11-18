@@ -1,0 +1,30 @@
+# Stage 1 proposal only; NOT installed in stage 1.
+# Target: Ubuntu-ICVIP, Python 3.10, RTX 4060 Laptop, CUDA 11.8 wheel.
+# Stage 2 must install in batches and verify imports/providers after each batch.
+
+--extra-index-url https://download.pytorch.org/whl/cu118
+
+torch==2.3.0+cu118
+torchvision==0.18.0+cu118
+
+accelerate==1.2.0
+diffusers==0.31.0
+transformers==4.47.0
+huggingface_hub==0.27.1
+peft==0.14.0
+safetensors==0.4.5
+
+insightface==0.7.3
+# Required by FaceAnalysis providers; absent from the original requirements.txt.
+onnxruntime-gpu==1.17.1
+
+# Keep NumPy below 2.x for the InsightFace/OpenCV/SciPy compatibility baseline.
+numpy==1.26.4
+scipy==1.13.1
+opencv-python==4.10.0.84
+# Do not install opencv-python-headless together with opencv-python.
+Pillow==10.4.0
+
+# The code uses Blocks, Image, Gallery, queue, and launch APIs available here.
+gradio==4.44.1
+tqdm==4.67.1

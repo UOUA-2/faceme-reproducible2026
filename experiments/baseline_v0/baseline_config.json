@@ -1,0 +1,58 @@
+{
+  "archive_name": "baseline_v0",
+  "status": "successfully_archived",
+  "environment": {
+    "wsl_distribution": "Ubuntu-ICVIP",
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "cuda_used_for_main_computation": true
+  },
+  "models_and_weights": [
+    {
+      "component": "RealVisXL V3.0",
+      "path": "/mnt/f/ICVIP/DaChuang/models/SG161222--RealVisXL_V3.0"
+    },
+    {
+      "component": "RealVisXL fp16 UNet",
+      "path": "/mnt/f/ICVIP/DaChuang/models/SG161222--RealVisXL_V3.0/unet/diffusion_pytorch_model.fp16.safetensors"
+    },
+    {
+      "component": "FaceMe ControlNet",
+      "path": "/mnt/f/ICVIP/DaChuang/weights/controlnet/diffusion_pytorch_model.safetensors"
+    },
+    {
+      "component": "FaceMe Mix",
+      "path": "/mnt/f/ICVIP/DaChuang/weights/mix/mix.safetensors"
+    },
+    {
+      "component": "PhotoMaker",
+      "path": "/mnt/f/ICVIP/DaChuang/models/TencentARC--PhotoMaker/photomaker-v1.bin"
+    },
+    {
+      "component": "InsightFace antelopev2",
+      "path": "/mnt/f/ICVIP/DaChuang/models/antelopev2"
+    }
+  ],
+  "input_path": "/mnt/f/ICVIP/DaChuang/data/lq/LQ.PNG",
+  "input_sha256": "c51849a52037a898a0b786727fbc74152de13421d1c89b015e4fc92114d47f20",
+  "source_output_path": "/mnt/f/ICVIP/DaChuang/outputs/stage3_baseline_fp16/LQ.PNG",
+  "output_path": "/mnt/f/ICVIP/DaChuang/experiments/baseline_v0/HQ_baseline_LQ.PNG",
+  "output_sha256": "0051ed9d7921806d7fcb6b146c684669f13d4bb6beeaedb0d3f2cba2b649e33e",
+  "image": {
+    "width": 256,
+    "height": 256,
+    "mode": "RGB",
+    "format": "PNG"
+  },
+  "inference": {
+    "diffusion_steps": 50,
+    "unet_dtype": "fp16",
+    "sequential_cpu_offload": true,
+    "attention_slicing": "max",
+    "vae_slicing": true,
+    "vae_tiling": true,
+    "insightface_provider": "CPUExecutionProvider"
+  },
+  "copied_reports": [
+    "/mnt/f/ICVIP/DaChuang/experiments/baseline_v0/STAGE3_MODEL_REPORT.md"
+  ]
+}

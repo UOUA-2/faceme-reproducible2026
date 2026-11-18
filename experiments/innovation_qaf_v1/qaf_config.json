@@ -1,0 +1,50 @@
+{
+  "experiment_name": "quality_adaptive_fusion_v1_smoke",
+  "status": "single_group_smoke_only_not_validated",
+  "project": "/mnt/f/ICVIP/DaChuang",
+  "selected_group": {
+    "dataset": "LFW-Test-Ref",
+    "identity": "Lloyd_Mudiwa_0001",
+    "identity_match_basis": "same official FaceMe identity directory and existing baseline mapping",
+    "role_mapping_status": "manual/inferred LQ role; not an official role annotation"
+  },
+  "input": "/mnt/f/ICVIP/DaChuang/sample_input/trial_resized_512/LFW-Test-Ref/Lloyd_Mudiwa_0001/LQ_512.png",
+  "refs": [
+    "/mnt/f/ICVIP/DaChuang/sample_input/LFW-Test-Ref/Lloyd_Mudiwa_0001/1.png",
+    "/mnt/f/ICVIP/DaChuang/sample_input/LFW-Test-Ref/Lloyd_Mudiwa_0001/2.png",
+    "/mnt/f/ICVIP/DaChuang/sample_input/LFW-Test-Ref/Lloyd_Mudiwa_0001/3.png"
+  ],
+  "baseline_output": "/mnt/f/ICVIP/DaChuang/sample_output_trial_resized_cc/LFW-Test-Ref__Lloyd_Mudiwa_0001/LQ_512.png",
+  "output": "/mnt/f/ICVIP/DaChuang/outputs/innovation_smoke_v1/LQ_512.png",
+  "actual_interface": {
+    "lq_condition_parameter": "strength -> controlnet_conditioning_scale",
+    "ref_condition_path": "ref_id_embs and ref_clip_embs -> Mix -> prompt_embeds",
+    "ref_strength_parameter": null,
+    "unsupported_parameters_not_invented": true
+  },
+  "rule": {
+    "metric": "Laplacian variance on the exact 512x512 staged LQ input",
+    "sharpness_normalizer": 500.0,
+    "base_controlnet_strength": 1.0,
+    "adaptation_alpha": 0.35,
+    "min_controlnet_strength": 0.75,
+    "max_controlnet_strength": 1.35,
+    "formula": "q=clip(laplacian_variance/500,0,1); degradation=1-q; strength=clip(1.0+0.35*degradation,0.75,1.35)",
+    "interpretation": "lower estimated LQ sharpness increases the bounded LQ ControlNet condition strength",
+    "ref_fusion": "unchanged baseline FaceMe Mix concatenation; no independent REF scale exists in the checked interface"
+  },
+  "runtime": {
+    "seed": 42,
+    "steps": 50,
+    "gpu": "RTX 4060",
+    "unet": "fp16",
+    "sequential_cpu_offload": true,
+    "attention_slicing": "max",
+    "vae_slicing": true,
+    "vae_tiling": true,
+    "insightface_providers": ["CPUExecutionProvider"],
+    "color_correction": true,
+    "training": false,
+    "batch_size": 1
+  }
+}

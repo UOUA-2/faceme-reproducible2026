@@ -1,0 +1,38 @@
+{
+  "mode": "server_direct_gpu",
+  "unet_variant": "fp16",
+  "cpu_offload": false,
+  "attention_slicing": false,
+  "vae_slicing": false,
+  "vae_tiling": false,
+  "selected": [
+    {
+      "dataset": "LFW-Test-Ref",
+      "identity": "Lloyd_Mudiwa_0001",
+      "split": "train"
+    },
+    {
+      "dataset": "LFW-Test-Ref",
+      "identity": "Caroline_Link_0001",
+      "split": "train"
+    },
+    {
+      "dataset": "WebPhoto-Test-Ref",
+      "identity": "00002_00",
+      "split": "train"
+    },
+    {
+      "dataset": "WebPhoto-Test-Ref",
+      "identity": "10025_00",
+      "split": "train"
+    },
+    {
+      "dataset": "Wider-Test-Ref",
+      "identity": "0481",
+      "split": "train"
+    }
+  ],
+  "gpu": "NVIDIA GeForce RTX 4080 SUPER",
+  "torch": "2.3.0+cu121",
+  "cuda_build": "12.1"
+}

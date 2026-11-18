@@ -1,0 +1,42 @@
+{
+  "steps": [
+    1,
+    2,
+    4,
+    6,
+    8,
+    10,
+    50
+  ],
+  "seed": 42,
+  "batch_seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "prompt": "A photo of face.",
+  "negative_prompt": "A photo of face.",
+  "controlnet_conditioning_scale": 1.0,
+  "model": "/mnt/f/ICVIP/DaChuang/models/SG161222--RealVisXL_V3.0",
+  "controlnet": "/mnt/f/ICVIP/DaChuang/weights/controlnet",
+  "mix": "/mnt/f/ICVIP/DaChuang/weights/mix",
+  "photomaker": "/mnt/f/ICVIP/DaChuang/models/TencentARC--PhotoMaker/photomaker-v1.bin",
+  "source_infer": "/mnt/f/ICVIP/DaChuang/infer.py",
+  "reused_runner": "/mnt/f/ICVIP/DaChuang/experiments/adaptive_budget_v1/run_teacher_outputs.py",
+  "no_mria": true,
+  "no_idr": true,
+  "color_correction": true,
+  "fp16": true,
+  "sequential_cpu_offload": true,
+  "attention_slicing": "max",
+  "vae_slicing": true,
+  "vae_tiling": true,
+  "insightface_provider": "CPUExecutionProvider"
+}
