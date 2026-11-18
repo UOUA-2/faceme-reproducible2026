@@ -9,10 +9,10 @@ This repository contains the FaceMe/ICVIP source code, runtime configuration, de
 | RealVisXL V3.0 | `models/SG161222--RealVisXL_V3.0/` | Yes: [SG161222/RealVisXL_V3.0](https://huggingface.co/SG161222/RealVisXL_V3.0) | Download the model with Hugging Face, or place the local snapshot at this path. |
 | PhotoMaker v1 | `models/TencentARC--PhotoMaker/photomaker-v1.bin` | Yes: [TencentARC/PhotoMaker](https://huggingface.co/TencentARC/PhotoMaker) | Download `photomaker-v1.bin` from the official model repository. |
 | InsightFace antelopev2 | `models/antelopev2/` | Yes: [official InsightFace model zoo](https://github.com/deepinsight/insightface/releases) | Download the official `antelopev2` pack, extract it here, and follow its license. |
-| FaceMe ControlNet | `weights/controlnet/` | No verified public replacement found | Preserve this directory in a separate backup for exact FaceMe reproduction. |
+| FaceMe ControlNet | `weights/controlnet/diffusion_pytorch_model.safetensors` | No verified public replacement found | The small `config.json` is included here; preserve the large safetensors file in a separate backup. |
 | FaceMe mix / adapter | `weights/mix/mix.safetensors` | No verified public replacement found | Preserve this file in a separate backup for exact FaceMe reproduction. |
 
-The first three components are external official dependencies and are not duplicated here. The ControlNet and `mix.safetensors` entries are project-specific artifacts: the source code refers to them by local path, but this repository does not establish an official public download location for them. Do not delete those two items until a separate backup has been verified.
+The first three components are external official dependencies and are not duplicated here. The ControlNet weight and `mix.safetensors` are project-specific artifacts: the source code refers to them by local path, but this repository does not establish an official public download location for them. The ControlNet configuration is included; the two large weight files still require a separate backup.
 
 ## Reproduction notes
 
